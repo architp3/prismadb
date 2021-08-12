@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource doctorsappusers {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model mysqltest {
+  username String? @doctorsappusers.Char(40)
+  password String? @doctorsappusers.Char(30)
+  id       Int     @id @default(autoincrement())
+
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model salesusers {
+  name          String? @doctorsappusers.VarChar(40)
+  employee_code String? @doctorsappusers.VarChar(20)
+  org_name      String? @doctorsappusers.VarChar(45)
+  div_name      String? @doctorsappusers.VarChar(20)
+  designation   String? @doctorsappusers.VarChar(40)
+  email         String? @doctorsappusers.Char(25)
+  city          String? @doctorsappusers.VarChar(15)
+  mobile_no     String? @doctorsappusers.VarChar(20)
+  password      String? @doctorsappusers.Char(30)
+  id            Int     @id @default(autoincrement())
+
+
+}
